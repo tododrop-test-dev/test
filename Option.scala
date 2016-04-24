@@ -30,77 +30,15 @@ object Option {
   def empty[A] : Option[A] = None
 }
 
-/** Represents optional values. Instances of `Option`
- *  are either an instance of $some or the object $none.
- *
- *  The most idiomatic way to use an $option instance is to treat it
- *  as a collection or monad and use `map`,`flatMap`, `filter`, or
- *  `foreach`:
- *
- *  {{{
- *  val name: Option[String] = request getParameter "name"
- *  val upper = name map { _.trim } filter { _.length != 0 } map { _.toUpperCase }
- *  println(upper getOrElse "")
- *  }}}
- *
- *  Note that this is equivalent to {{{
- *  val upper = for {
- *    name <- request getParameter "name"
- *    trimmed <- Some(name.trim)
- *    upper <- Some(trimmed.toUpperCase) if trimmed.length != 0
- *  } yield upper
- *  println(upper getOrElse "")
- *  }}}
- *
- *  Because of how for comprehension works, if $none is returned
- *  from `request.getParameter`, the entire expression results in
- *  $none
- *
- *  This allows for sophisticated chaining of $option values without
- *  having to check for the existence of a value.
- *
- *  A less-idiomatic way to use $option values is via pattern matching: {{{
- *  val nameMaybe = request getParameter "name"
- *  nameMaybe match {
- *    case Some(name) =>
- *      println(name.trim.toUppercase)
- *    case None =>
- *      println("No name value")
- *  }
- *  }}}
- *
- *  @note Many of the methods in here are duplicative with those
- *  in the Traversable hierarchy, but they are duplicated for a reason:
- *  the implicit conversion tends to leave one with an Iterable in
- *  situations where one could have retained an Option.
- *
- *  @author  Martin Odersky
- *  @author  Matthias Zenger
- *  @version 1.1, 16/01/2007
- *  @define none `None`
- *  @define some [[scala.Some]]
- *  @define option [[scala.Option]]
- *  @define p `p`
- *  @define f `f`
- *  @define coll option
- *  @define Coll `Option`
- *  @define orderDependent
- *  @define orderDependentFold
- *  @define mayNotTerminateInf
- *  @define willNotTerminateInf
- *  @define collectExample
- *  @define undefinedorder
- *  @define thatinfo the class of the returned collection. In the standard library configuration, `That` is `Iterable[B]`
- *  @define bfinfo an implicit value of class `CanBuildFrom` which determines the result class `That` from the current
- *    representation type `Repr` and the new element type `B`.
- */
-@SerialVersionUID(-114498752079829388L) // value computed by serialver for 2.11.2, annotation added in 2.11.4
 sealed abstract class Option[+A] extends Product with Serializable {
   self =>
 
   /** Returns true if the option is $none, false otherwise.
    */
   def isEmpty: Boolean
+
+  // TODO: fill in implementation
+  def addingSomeNewMethod(s: String): String = ???
 
   /** Returns true if the option is an instance of $some, false otherwise.
    */
@@ -210,25 +148,8 @@ sealed abstract class Option[+A] extends Product with Serializable {
     def withFilter(q: A => Boolean): WithFilter = new WithFilter(x => p(x) && q(x))
   }
 
-  /** Tests whether the option contains a given value as an element.
-   *
-   *  @example {{{
-   *  // Returns true because Some instance contains string "something" which equals "something".
-   *  Some("something") contains "something"
-   *
-   *  // Returns false because "something" != "anything".
-   *  Some("something") contains "anything"
-   *
-   *  // Returns false when method called on None.
-   *  None contains "anything"
-   *  }}}
-   *
-   *  @param elem the element to test.
-   *  @return `true` if the option has an element that is equal (as
-   *  determined by `==`) to `elem`, `false` otherwise.
-   */
-  final def contains[A1 >: A](elem: A1): Boolean =
-    !isEmpty && this.get == elem
+  // some non-todo comment
+  def addAnotherThing(here: String): String = ???
 
   /** Returns true if this option is nonempty '''and''' the predicate
    * $p returns true when applied to this $option's value.

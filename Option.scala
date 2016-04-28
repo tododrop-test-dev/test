@@ -173,6 +173,7 @@ sealed abstract class Option[+A] extends Product with Serializable {
   @inline final def flatMap[B](f: A => Option[B]): Option[B] =
     if (isEmpty) None else f(this.get)
 
+  // todo: new todo!
   def flatten[B](implicit ev: A <:< Option[B]): Option[B] =
     if (isEmpty) None else ev(this.get)
 

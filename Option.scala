@@ -28,6 +28,8 @@ object Option {
    *  the collections hierarchy.
    */
   def empty[A] : Option[A] = None
+
+  def someNewThing: String = "ok"
 }
 
 /** Represents optional values. Instances of `Option`

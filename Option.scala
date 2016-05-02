@@ -28,6 +28,8 @@ object Option {
    *  the collections hierarchy.
    */
   def empty[A] : Option[A] = None
+
+  def someNewThing: String = "ok"
 }
 
 /** Represents optional values. Instances of `Option`
@@ -291,6 +293,7 @@ sealed abstract class Option[+A] extends Product with Serializable {
   /** Returns a singleton iterator returning the $option's value
    * if it is nonempty, or an empty iterator if the option is empty.
    */
+  // TODO: this is also crap
   def iterator: Iterator[A] =
     if (isEmpty) collection.Iterator.empty else collection.Iterator.single(this.get)
 

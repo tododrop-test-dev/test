@@ -29,7 +29,6 @@ object Option {
    */
   def empty[A] : Option[A] = None
 
-  // todo: this is crap
   def someNewThing: String = "ok"
 }
 

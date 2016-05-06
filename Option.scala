@@ -10,6 +10,7 @@ package scala
 
 object Option {
 
+  // TODO: some more todo
   import scala.language.implicitConversions
 
   /** An implicit conversion that converts an option to an iterable value
@@ -28,6 +29,8 @@ object Option {
    *  the collections hierarchy.
    */
   def empty[A] : Option[A] = None
+
+  def someNewThing: String = "ok"
 }
 
 /** Represents optional values. Instances of `Option`

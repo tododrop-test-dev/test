@@ -4,4 +4,5 @@ package com.originate.tododrop
 class Test {
   // TODO: add implementation
   def test: String = ???
+  // TODO: something should be added here
 }

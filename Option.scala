@@ -145,6 +145,7 @@ sealed abstract class Option[+A] extends Product with Serializable {
    *  @see flatMap
    *  @see foreach
    */
+  // TODO this should be moved to another file
   @inline final def map[B](f: A => B): Option[B] =
     if (isEmpty) None else Some(f(this.get))
 

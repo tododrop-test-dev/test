@@ -28,7 +28,6 @@ object Option {
   /** An Option factory which returns `None` in a manner consistent with
    *  the collections hierarchy.
    */
-  // todo: improve this
   def empty[A] : Option[A] = None
 
   def someNewThing: String = "ok"

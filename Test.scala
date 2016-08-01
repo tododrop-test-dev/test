@@ -5,5 +5,5 @@ class Test {
   // TODO: add implementation
   def test: String = ???
   // TODO: test
-  // TODO: hohohoho
+  // TODO: hohohohoo
 }

@@ -1,7 +1,9 @@
 package com.originate.tododrop
 
-// comment
 class Test {
-  // TODO: add implementation
   def test: String = ???
 }
+
+// TODO: hotness
+//TODO: from Fri Aug  5 12:12:10 EDT 2016
+//TODO: from Fri Aug  5 12:12:30 EDT 2016
